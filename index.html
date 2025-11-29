@@ -1,119 +1,1308 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KeyTech Automotive Solutions</title>
-  <meta name="description" content="KeyTech Automotive Solutions — Professional vehicle key programming, duplication, remote configuration, ECU & immobilizer work, and GPS tracker installation in Ilorin." />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="logo.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KeyTech Automotive Solutions | Vehicle Key Programming in Ilorin</title>
+  <meta name="description" content="KeyTech Automotive Solutions – expert vehicle key programming, duplication, ECU & immobilizer work, and GPS tracker installation across Ilorin." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050810;
+      --bg-soft: #0f172a;
+      --bg-card: #111827;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --accent-blue: #3b82f6;
+      --accent-blue-soft: rgba(59, 130, 246, 0.15);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: #1f2937;
+      --danger: #ef4444;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --shadow-btn: 0 8px 20px rgba(34, 197, 94, 0.35);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 60%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      color: var(--text-main);
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88) 60%, transparent);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0 0.7rem;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 0%, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b1120;
+      font-weight: 800;
+      font-size: 1.2rem;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.35);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 1.1rem;
+    }
+
+    .logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.8rem;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      color: var(--text-muted);
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .btn {
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #22c55e, #16a34a);
+      color: #020617;
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent-blue);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(96, 165, 250, 0.9);
+    }
+
+    .hero {
+      padding: 1.4rem 0 2.6rem;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(to right, #e5e7eb, #9ca3af);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      max-width: 26rem;
+      font-size: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(75, 85, 99, 0.7);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(37, 99, 235, 0.2), transparent 55%),
+                  linear-gradient(to bottom right, #020617, #020617);
+      border-radius: 26px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.3rem 1.3rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.2rem;
+      font-size: 0.6rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .hero-card-title {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .stat {
+      padding: 0.55rem 0.7rem;
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 14px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.7rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    .divider-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      margin-bottom: 1.4rem;
+    }
+
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, transparent, rgba(55, 65, 81, 0.9), transparent);
+    }
+
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    .badge-strip span {
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    main {
+      padding-bottom: 3.5rem;
+    }
+
+    section {
+      padding: 1.8rem 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.65rem;
+      color: var(--accent-blue);
+      margin-bottom: 0.15rem;
+    }
+
+    .section-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 26rem;
+    }
+
+    .section-note {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    .pill-row span {
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      color: var(--text-muted);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .service-card {
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.05), transparent 60%),
+                  #020617;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 0.85rem 0.85rem 0.9rem;
+    }
+
+    .service-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-blue);
+      margin-bottom: 0.15rem;
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 0.94rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.6rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .chip {
+      padding: 0.16rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .list-icon {
+      margin-top: 0.12rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #22c55e, #16a34a);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+    }
+
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .tag-grid span {
+      padding: 0.16rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text-muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.8rem;
+      font-size: 0.78rem;
+    }
+
+    .step {
+      background: #020617;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 0.75rem 0.8rem;
+      position: relative;
+    }
+
+    .step-num {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.7rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .step-text {
+      color: var(--text-muted);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.78rem;
+    }
+
+    .quote {
+      background: #020617;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 0.8rem;
+    }
+
+    .quote-body {
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .quote-name {
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .quote-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .gallery-item {
+      background: #020617;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      display: flex;
+      flex-direction: column;
+      min-height: 150px;
+    }
+
+    .gallery-img {
+      height: 130px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-caption {
+      padding: 0.45rem 0.6rem 0.55rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .faq-item {
+      background: #020617;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 0.7rem 0.8rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 1.4rem;
+    }
+
+    .contact-info {
+      font-size: 0.8rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-blue);
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-main {
+      font-size: 0.88rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .map {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+      min-height: 220px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.98);
+      padding: 1.3rem 0 1.8rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617 60%);
+      margin-top: 2rem;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items:まあcenter;
+    }
+
+    .float-chat {
+      position: fixed;
+      right: 1.3rem;
+      bottom: 1.4rem;
+      z-index: 45;
+    }
+
+    .float-chat a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #22c55e, #16a34a);
+      color: #020617;
+      font-weight: 600;
+      font-size: 0.8rem;
+      box-shadow: 0 14px 35px rgba(34, 197, 94, 0.6);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .float-chat a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(34, 197, 94, 0.65);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 1.3rem;
+      bottom: 4.8rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 40;
+    }
+
+    @media (max-width: 900px) {
+      .hero-layout,
+      .split,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 1rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        background: rgba(15, 23, 42, 0.97);
+      }
+      .nav {
+        padding-top: 0.7rem;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .map {
+        min-height: 200px;
+      }
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="KeyTech Logo" class="logo">
-        <div>
-          <h1>KeyTech Automotive Solutions</h1>
-          <p class="tag">Precision • Programming • Performance</p>
+  <div class="page" id="top">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="logo-group">
+            <div class="logo-mark">K</div>
+            <div>
+              <div class="logo-text-main">KeyTech Automotive Solutions</div>
+              <div class="logo-text-sub">Keys • Programming • Security</div>
+            </div>
+          </div>
+          <div class="nav-actions">
+            <div class="pill">
+              <span class="pill-dot"></span>
+              Mobile service across Ilorin
+            </div>
+            <a href="tel:+2348064351089" class="btn btn-outline">
+              Call now
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-layout">
+          <div>
+            <div class="hero-kicker">Fast • Reliable • Professional</div>
+            <h1 class="hero-title">
+              Keep your vehicle secure with
+              <span class="hero-highlight">precision key solutions</span>.
+            </h1>
+            <p class="hero-subtitle">
+              Vehicle key programming, lost key replacement, remote repair, ECU &amp; immobilizer work, and GPS tracker installation – handled on-site across Ilorin.
+            </p>
+
+            <div class="hero-badge-row">
+              <div class="hero-badge">
+                <span class="pill-dot"></span> Same-day response (subject to availability)
+              </div>
+              <div class="hero-badge">
+                🔐 Dealer-level diagnostic tools
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="tel:+2348064351089" class="btn btn-primary">
+                Call 08064351089
+              </a>
+              <a href="https://wa.me/2348064351089?text=Hi%20KeyTech,%20I%27d%20like%20help%20with%20my%20vehicle%20key." class="btn btn-outline">
+                WhatsApp us
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <span><span class="dot"></span> Ilorin &amp; surrounding areas</span>
+              <span>Mon–Sun • 8:00am – 6:00pm</span>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <span class="hero-card-tag">Response-focused service</span>
+            <h2 class="hero-card-title">Emergency key issues, handled calmly.</h2>
+            <p class="hero-card-text">
+              Lost keys, non-starting vehicles, or faulty remotes – we come to you, check, program and test, so you’re back on the road fast and secure.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <div class="stat-label">Average on-site time</div>
+                <div class="stat-value">45–90 mins</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Service focus</div>
+                <div class="stat-value">Key &amp; security only</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Coverage</div>
+                <div class="stat-value">Ilorin + environs</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Support</div>
+                <div class="stat-pill">📞 Call • 💬 WhatsApp</div>
+              </div>
+            </div>
+
+            <div class="divider-row">
+              <div class="divider"></div>
+            </div>
+
+            <div class="badge-strip">
+              <span>Push‑to‑start &amp; proximity keys</span>
+              <span>ECU &amp; immobilizer pairing</span>
+              <span>Transponder key programming</span>
+              <span>GPS tracker installation</span>
+            </div>
+          </aside>
         </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Our services</div>
+              <h2 class="section-title">Key &amp; vehicle security work we handle daily.</h2>
+              <p class="section-desc">
+                From standard keys to advanced proximity systems, we diagnose, program and test your vehicle security components with professional tools.
+              </p>
+            </div>
+            <div class="section-note">
+              100% mobile – we come to your location within Ilorin (subject to availability).
+            </div>
+          </div>
+
+          <div class="pill-row">
+            <span>Key programming</span>
+            <span>Lost key replacement</span>
+            <span>Remote repair</span>
+            <span>ECU &amp; immobilizer</span>
+            <span>Tracker installation</span>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card">
+              <div class="service-label">Programming</div>
+              <h3 class="service-title">Smart key programming</h3>
+              <p class="service-text">
+                Programming of push‑to‑start, transponder and proximity keys for most vehicle brands using up‑to‑date tools and tested procedures.
+              </p>
+              <div class="service-meta">
+                <span class="chip">Most cars &amp; SUVs</span>
+                <span>⏱ On-site</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-label">Duplication</div>
+              <h3 class="service-title">Key duplication</h3>
+              <p class="service-text">
+                Fast and accurate duplication of working keys – including chipped and remote keys – so you always have a secure backup.
+              </p>
+              <div class="service-meta">
+                <span class="chip">Standard &amp; remote keys</span>
+                <span>⚙️ Cut &amp; program</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-label">Repair</div>
+              <h3 class="service-title">Remote repair &amp; configuration</h3>
+              <p class="service-text">
+                Fix non‑responding or damaged remotes: re‑synchronisation, case &amp; battery replacement, and button repairs where possible.
+              </p>
+              <div class="service-meta">
+                <span class="chip">Check before replacing</span>
+                <span>🔋 New batteries</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-label">Security</div>
+              <h3 class="service-title">ECU &amp; immobilizer work</h3>
+              <p class="service-text">
+                ECU pairing, immobilizer resets, virginising, and related diagnostics to get non‑starting vehicles back to a safe, programmable state.
+              </p>
+              <div class="service-meta">
+                <span class="chip">No guess‑work</span>
+                <span>🔧 Diagnostic tools</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-label">Lost keys</div>
+              <h3 class="service-title">Lost key replacement</h3>
+              <p class="service-text">
+                Full replacement when all keys are lost – cutting and programming new keys, clearing old keys from the system where supported.
+              </p>
+              <div class="service-meta">
+                <span class="chip">All keys lost service</span>
+                <span>🚙 On-site visit</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-label">Tracking</div>
+              <h3 class="service-title">GPS tracker installation</h3>
+              <p class="service-text">
+                Hardwired tracker installations and configuration for real‑time tracking, with neat wiring and secure module placement.
+              </p>
+              <div class="service-meta">
+                <span class="chip">Stealth installs</span>
+                <span>📍 Live tracking</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- About / Why choose us -->
+      <section id="about">
+        <div class="container split">
+          <article class="card">
+            <div class="section-kicker">About KeyTech</div>
+            <h2 class="card-title">Modern tools. Trained hands. Focused on Ilorin drivers.</h2>
+            <p class="card-text">
+              KeyTech Automotive Solutions combines updated programming equipment with proper training to deliver solid, dependable key and security work.
+              We understand how stressful key problems can be, so we keep communication simple and the work professional.
+            </p>
+            <ul class="list">
+              <li>
+                <span class="list-icon"></span>
+                <span>Mobile service – we come to you where your vehicle is located (home, work, or roadside where safe).</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Programming with proper diagnostics instead of trial‑and‑error that can damage modules.</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Clear explanation of what’s possible for your exact vehicle model before we begin.</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Respect for your time – honest updates if any part of the process requires extra time or parts.</span>
+              </li>
+            </ul>
+          </article>
+
+          <aside class="card">
+            <h3 class="card-title">Why drivers choose KeyTech</h3>
+            <p class="card-text">
+              You don’t just want a working key – you want your vehicle secure and your day back on track.
+            </p>
+            <ul class="list">
+              <li>
+                <span class="list-icon"></span>
+                <span>Fast response within Ilorin (subject to schedule).</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Transparent pricing explained before work starts.</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Clean, neat work with respect for your vehicle interior and wiring.</span>
+              </li>
+              <li>
+                <span class="list-icon"></span>
+                <span>Support via call or WhatsApp if you have questions after the job.</span>
+              </li>
+            </ul>
+
+            <div style="margin-top:0.7rem;">
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.25rem;">Typical vehicles we work on:</div>
+              <div class="tag-grid">
+                <span>Toyota</span>
+                <span>Honda</span>
+                <span>Lexus</span>
+                <span>Hyundai</span>
+                <span>Kia</span>
+                <span>Ford</span>
+                <span>Others on request</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how-it-works">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">How it works</div>
+              <h2 class="section-title">Simple steps from first call to working key.</h2>
+            </div>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">01</div>
+              <div class="step-title">Contact us</div>
+              <p class="step-text">
+                Call or WhatsApp with your vehicle make, model, year and the exact issue (lost keys, extra key, non‑start, remote not working).
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-num">02</div>
+              <div class="step-title">Assessment &amp; quote</div>
+              <p class="step-text">
+                We confirm what is possible for your car and give a clear estimate, including whether on‑site work is needed.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-num">03</div>
+              <div class="step-title">On‑site visit</div>
+              <p class="step-text">
+                We come to your location, perform diagnostics, programming, cutting, and any required resets or pairing.
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-num">04</div>
+              <div class="step-title">Testing &amp; handover</div>
+              <p class="step-text">
+                We test starting, locking and remote functions with you present, and share basic tips to avoid future key issues.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Feedback</div>
+              <h2 class="section-title">What customers say after the job is done.</h2>
+            </div>
+            <div class="section-note">
+              Real experiences from Ilorin drivers and fleet owners.
+            </div>
+          </div>
+
+          <div class="testimonials">
+            <article class="quote">
+              <p class="quote-body">
+                “Lost my only key on a Sunday and thought I’d be stuck. KeyTech came to my house, programmed a new key and I was driving that evening.”
+              </p>
+              <div class="quote-name">Private car owner</div>
+              <div class="quote-meta">Push‑to‑start key, Ilorin</div>
+            </article>
+
+            <article class="quote">
+              <p class="quote-body">
+                “Explained every step and the price before starting. Remote now works perfectly and the wiring inside the car is still very neat.”
+              </p>
+              <div class="quote-name">Taxi driver</div>
+              <div class="quote-meta">Remote repair &amp; extra key</div>
+            </article>
+
+            <article class="quote">
+              <p class="quote-body">
+                “We use KeyTech for our company vehicles. Quick response and they keep records of what was done, which helps with future work.”
+              </p>
+              <div class="quote-name">Fleet manager</div>
+              <div class="quote-meta">Keys &amp; GPS trackers</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery (uses your existing image filenames in the repo root) -->
+      <section id="gallery">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Gallery</div>
+              <h2 class="section-title">A look at some of our recent work.</h2>
+              <p class="section-desc">
+                Real jobs completed in Ilorin – from programming proximity keys to neat tracker installations.
+              </p>
+            </div>
+            <div class="section-note">
+              Photos loaded directly from this GitHub repository.
+            </div>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item">
+              <div class="gallery-img" style="background-image:url('IMG-20251127-WA0005.jpg');"></div>
+              <figcaption class="gallery-caption">Key programming for a modern vehicle.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <div class="gallery-img" style="background-image:url('IMG-20251127-WA0006.jpg');"></div>
+              <figcaption class="gallery-caption">Remote key duplication and testing.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <div class="gallery-img" style="background-image:url('IMG-20251127-WA0007.jpg');"></div>
+              <figcaption class="gallery-caption">GPS tracker installation with clean wiring.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <div class="gallery-img" style="background-image:url('IMG-20251127-WA0008.jpg');"></div>
+              <figcaption class="gallery-caption">Immobilizer / ECU work on a non‑starting vehicle.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <div class="gallery-img" style="background-image:url('IMG-20251127-WA0009.jpg');"></div>
+              <figcaption class="gallery-caption">Another completed key and security job.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">FAQ</div>
+              <h2 class="section-title">Answers to common questions.</h2>
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q">Can you help if I’ve lost all my keys?</div>
+              <div class="faq-a">
+                Yes – for many vehicles we can cut and program new keys even when all keys are lost. We’ll confirm what is possible for your exact model when you contact us.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Do you need my car to be towed to you?</div>
+              <div class="faq-a">
+                In most cases no. We offer mobile service within Ilorin and can come to where your vehicle is parked, as long as it’s in a safe location.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">What information should I send on WhatsApp?</div>
+              <div class="faq-a">
+                Send your name, vehicle make, model, year, location in Ilorin, and a short description of the problem. Photos of your existing key or dashboard lights also help.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">How long does key programming take?</div>
+              <div class="faq-a">
+                Simple duplication can take around 20–40 minutes. Full lost key situations or complex systems can take longer depending on the vehicle and security system.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-q">Do you offer warranty on your work?</div>
+              <div class="faq-a">
+                Yes – we stand behind our programming and installations with a reasonable warranty period, explained clearly before we start any job.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container contact-layout">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Let’s secure your vehicle.</h2>
+            <div class="contact-info">
+              <div style="margin-top:0.4rem;">
+                <div class="contact-label">Phone / WhatsApp</div>
+                <div class="contact-main">
+                  <a href="tel:+2348064351089">08064351089</a>
+                </div>
+                <p>Call or message for emergencies, questions, or bookings.</p>
+              </div>
+
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-main">
+                  <a href="mailto:Ore.Suluqmain089@gmail.com">Ore.Suluqmain089@gmail.com</a>
+                </div>
+              </div>
+
+              <div>
+                <div class="contact-label">Service areas</div>
+                <p>Ilorin – Adewole Road • Asadam • Mandate Road • Tanke • other locations on request.</p>
+              </div>
+
+              <div>
+                <div class="contact-label">Opening hours</div>
+                <p>Monday – Sunday: 8:00am – 6:00pm (after-hours support when possible by arrangement).</p>
+              </div>
+
+              <div class="contact-actions">
+                <a href="tel:+2348064351089" class="btn btn-primary">Call now</a>
+                <a href="https://wa.me/2348064351089?text=Hi%20KeyTech,%20I%27d%20like%20to%20book%20a%20vehicle%20key%20service." class="btn btn-outline">WhatsApp</a>
+                <a href="mailto:Ore.Suluqmain089@gmail.com" class="btn btn-outline">Email us</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="map">
+            <iframe
+              src="https://www.google.com/maps?q=Ilorin%2C%20Nigeria&z=13&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© 2025 KeyTech Automotive Solutions · Ilorin</div>
+        <div>We keep your vehicle secure with honest, professional key &amp; security work.</div>
       </div>
-      <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    </footer>
+
+    <button class="back-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑</button>
+
+    <div class="float-chat">
+      <a href="https://wa.me/2348064351089?text=Hi%20KeyTech,%20I%27d%20like%20help%20with%20my%20vehicle%20key." aria-label="Chat on WhatsApp">
+        Chat
+      </a>
     </div>
-  </header>
-
-  <section class="hero" id="home">
-    <div class="wrap">
-      <h2>Fast. Reliable. Professional.</h2>
-      <p>Vehicle key programming, lost key replacement, remote configuration, ECU & immobilizer solutions, and GPS tracker installations across Ilorin.</p>
-      <div class="cta">
-        <a class="btn call" href="tel:+2348064351089">Call 08064351089</a>
-        <a class="btn wa" href="https://wa.me/2348064351089" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="wrap section services">
-    <h3>Our Services</h3>
-    <div class="grid">
-      <div class="card">
-        <h4>Smart Key Programming</h4>
-        <p>Push‑to‑start, transponder and proximity keys programmed for most vehicle brands.</p>
-      </div>
-      <div class="card">
-        <h4>Key Duplication</h4>
-        <p>Fast and accurate duplication for standard and chipped keys.</p>
-      </div>
-      <div class="card">
-        <h4>Remote Repair & Configuration</h4>
-        <p>Remote pairing, re‑synchronisation, battery & shell replacements.</p>
-      </div>
-      <div class="card">
-        <h4>ECU & Immobilizer Work</h4>
-        <p>ECU pairing, immobilizer resets, virginizing, and related diagnostics.</p>
-      </div>
-      <div class="card">
-        <h4>Lost Key Replacement</h4>
-        <p>Cutting + programming replacement keys fast and reliably.</p>
-      </div>
-      <div class="card">
-        <h4>GPS Tracker Installation</h4>
-        <p>Hardwired installations and tracker configuration for real‑time tracking.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap section about" id="about">
-    <h3>About KeyTech</h3>
-    <p>KeyTech Automotive Solutions combines modern tools with trained technicians to deliver dependable vehicle key and security services across Ilorin. We prioritize speed, accuracy, and your vehicle's security — giving you a professional service without the fuss.</p>
-
-    <div class="promise">
-      <h4>Our Promise</h4>
-      <ul>
-        <li>Fast response within Ilorin</li>
-        <li>Accurate, professional work</li>
-        <li>Affordable and transparent pricing</li>
-        <li>Secure solutions with top-tier tools</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="wrap section gallery" id="gallery">
-    <h3>Gallery</h3>
-    <div class="thumbs">
-      <img src="images/key_programming.jpg" alt="Key programming" />
-      <img src="images/key_duplication.jpg" alt="Key duplication" />
-      <img src="images/tracker_install.jpg" alt="Tracker installation" />
-    </div>
-  </section>
-
-  <section class="wrap section contact" id="contact">
-    <h3>Contact</h3>
-    <p><strong>Phone / WhatsApp:</strong> <a href="tel:+2348064351089">08064351089</a></p>
-    <p><strong>Email:</strong> <a href="mailto:Ore.Sulqurnain089@gmail.com">Ore.Sulqurnain089@gmail.com</a></p>
-    <p><strong>Service areas:</strong> Ilorin · Adewole Road · Asadam · Mandate Road · Tanke</p>
-    <p><strong>Opening Hours:</strong> Mon–Sun 8:00am – 6:00pm</p>
-
-    <div class="contact-actions">
-      <a class="btn call" href="tel:+2348064351089">Call Now</a>
-      <a class="btn wa" href="https://wa.me/2348064351089" target="_blank">WhatsApp</a>
-      <a class="btn mail" href="mailto:Ore.Sulqurnain089@gmail.com">Email Us</a>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© 2025 KeyTech Automotive Solutions · Ilorin</p>
-      <p class="small">We keep your vehicle secure — fast, honest, professional service.</p>
-    </div>
-  </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/2348064351089" target="_blank" aria-label="Chat on WhatsApp">Chat</a>
-
-  <script src="script.js"></script>
+  </div>
 </body>
 </html>
